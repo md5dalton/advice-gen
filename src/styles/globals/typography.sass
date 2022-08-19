@@ -1,0 +1,20 @@
+@use "sass:math"
+@use "sass:list"
+
+$sizes: md, lg, xl, xxl, xxxl
+
+/* set base values */
+$textBaseSize: 1em
+$textScaleRatio: 1.5
+
+:root
+    /* type scale */
+    --text-xs: #{calc($textBaseSize / math.pow($textScaleRatio, 2))}
+    --text-sm: #{calc($textBaseSize / $textScaleRatio)}
+
+    @each $size in $sizes
+        $power: list.index($sizes, $size)
+        --text-#{$size}: #{$textBaseSize * math.pow($textScaleRatio, $power)}
+
+// Adapted from:
+// https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd

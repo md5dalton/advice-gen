@@ -1,0 +1,30 @@
+@use "../util" as *
+
+html
+    box-sizing: border-box
+
+    &::-webkit-scrollbar
+        display: none
+
+*, 
+*::before, 
+*::after
+    box-sizing: inherit
+
+body
+    margin: 0
+    padding: 0
+    font-size: 28px
+    font-weight: 800
+    font-family: var(--font)
+    color: var(--color-text)
+    background-color: var(--color-bg)
+
+
+button
+    appearance: none
+    background: none
+    border: none
+
+main
+    @include container-b
