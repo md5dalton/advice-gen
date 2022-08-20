@@ -17,13 +17,18 @@ export default class AdviceGenerator extends Component
     }
 
     getRandomAdvice () {
-
+        
         const api = "https://api.adviceslip.com/advice"
-
+        
         if (!this.state.isLoading) {
+
+            const controller = new AbortController()
+            
+            setTimeout(() => controller.abort(), 15000)
 
             const OPTIONS = {
                 cache: "no-cache",
+                signal: controller.signal
                 // signal: AbortSignal.timeout(5000)
             }
             
